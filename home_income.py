@@ -45,7 +45,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 
-st.set_page_config(page_title="NHANES Model Prediction",layout="wide", page_icon = 'https://www.cdc.gov/nchs/images/nhanes/NHANES-Trademark.png?_=04691')
+st.set_page_config(page_title="Previsao de Renda",layout="wide", page_icon = 'https://www.cdc.gov/nchs/images/nhanes/NHANES-Trademark.png?_=04691')
 
 
 # Dicionário para armazenar as diferentes páginas
