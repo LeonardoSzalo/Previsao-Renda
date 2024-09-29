@@ -52,7 +52,7 @@ def run():
     pd.set_option('display.max_columns', None)
 
     # Carregar o seu DataFrame renda
-    renda = pd.read_csv(r"https://raw.githubusercontent.com/LeonardoSzalo/Previsao-Renda/refs/heads/master/previsao_de_renda.xls")
+    renda = pd.read_csv(r"previsao_de_renda.xls")
     
     # Pré-processamento
     renda.drop('Unnamed: 0', axis=1, inplace=True)

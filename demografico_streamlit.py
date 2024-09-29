@@ -11,8 +11,7 @@ def run():
     pd.set_option('display.max_columns', None)
 
     # Carregamento dos dados
-    https://github.com/LeonardoSzalo/Previsao-Renda/blob/master/previsao_de_renda.xls
-    renda = pd.read_csv(r"https://raw.githubusercontent.com/LeonardoSzalo/Previsao-Renda/refs/heads/master/previsao_de_renda.xls")
+    renda = pd.read_csv(r"previsao_de_renda.xls")
     renda['data_ref'] = pd.to_datetime(renda['data_ref'], format='%Y-%m-%d')
 
     # Função para criar os gráficos
