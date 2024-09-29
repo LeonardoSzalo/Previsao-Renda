@@ -52,62 +52,9 @@ def run():
     pd.set_option('display.max_columns', None)
 
     # Carregar o seu DataFrame renda
-    renda = pd.read_csv(r"previsao_de_renda.xls")
-    
-    # Pré-processamento
-    renda.drop('Unnamed: 0', axis=1, inplace=True)
-    renda = renda.fillna(0)
-    def categorizar_tempo_emprego(tempo):
-        if 0 <= tempo < 0.1:
-            return '0 anos'
-        elif 0.1 < tempo < 5:
-            return '1 a 4.99 anos'
-        elif 5 < tempo < 10:
-            return '5 a 10 anos'
-        elif 10 < tempo < 15:
-            return '10 a 15 anos'
-        elif 15 < tempo:
-            return '15 anos ou mais'
-        return tempo
-
-    renda['tempo_emprego_categorico'] = renda['tempo_emprego'].apply(categorizar_tempo_emprego)
-
-    def categorize_filhos(qtd):
-        if qtd == 0:
-            return '0 filhos'
-        elif 1 <= qtd <= 2:
-            return '1-2 filhos'
-        else:
-            return '3 ou mais filhos'
-
-    renda['categoria_filhos'] = renda['qtd_filhos'].apply(categorize_filhos)
-
-    bins = [0, 25, 30, 40, 50, 60, 100]  # Definindo os limites das categorias
-    labels = ['<25 anos', '<=25 e <30 anos', '<=30 e <40 anos', '<=40 e <50 anos', '<=50 e <=60 anos', '>60 anos']  # Nomes das categorias
-    renda['faixa_idade'] = pd.cut(renda['idade'], bins=bins, labels=labels, right=False)
-
-    dummies = renda.copy()
-    dummies.drop(['data_ref', 'id_cliente'], axis=1, inplace=True)
-    dummies = pd.get_dummies(dummies, drop_first=True)
-    
-    # Transformação da renda em log
-    dummies['renda_log'] = np.log(dummies['renda'])
-    
-    df_numerico = dummies.select_dtypes(include=['float64', 'int64'])
-    df_numerico.drop(['renda', 'renda_log'], axis=1, inplace=True)
-    
-    # Padronizando os dados
-    scaler = StandardScaler()
-    df_scaled = scaler.fit_transform(df_numerico)
-    
-    # Aplicando PCA
-    pca = PCA(n_components=2)
-    df_pca = pca.fit_transform(df_scaled)
-    
-    # Convertendo para DataFrame
-    df_pca = pd.DataFrame(data=df_pca, columns=['Componente 1', 'Componente 2'])
-    
-    df_final = pd.concat([dummies.select_dtypes(include='bool').reset_index(drop=True), df_pca.reset_index(drop=True)], axis=1)
+    df_final = pd.read_csv(r"variavel_x.xlsx")
+    dummies = pd.read_csv(r"variavel_y.xlsx")
+  
     
     # Separando recursos e alvo
     X = df_final  # Recursos
