@@ -52,8 +52,8 @@ def run():
     pd.set_option('display.max_columns', None)
 
     # Carregar o seu DataFrame renda
-    df_final = pd.read_csv(r"variavel_x.xlsx",  encoding='utf-8')
-    dummies = pd.read_csv(r"variavel_y.xlsx",  encoding='utf-8')
+    df_final = pd.read_csv(r"variavel_x.xls",  encoding='utf-8')
+    dummies = pd.read_csv(r"variavel_y.xls",  encoding='utf-8')
   
     
     # Separando recursos e alvo
