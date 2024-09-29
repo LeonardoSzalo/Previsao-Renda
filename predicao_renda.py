@@ -6,19 +6,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Função para carregar os dados com cache (evita carregamento repetido)
-@st.cache_data
-def load_data():
-    df_final = pd.read_csv(r"variavel_x.xlsx")
-    dummies = pd.read_csv(r"variavel_y.xlsx")
-    return df_final, dummies
+
+    
+
 
 def run():
     # Configurações iniciais de exibição
     st.title("Regressão Lasso - Avaliação de Desempenho")
+   
+    df_final = pd.read_csv(r"variavel_x.xlsx")
+    dummies = pd.read_csv(r"variavel_y.xlsx")
 
-    # Carregar os dados
-    df_final, dummies = load_data()
     
     # Separando recursos e alvo
     X = df_final  # Features
