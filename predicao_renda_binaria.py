@@ -61,7 +61,8 @@ def run():
     pd.set_option('display.max_columns', None)
 
     # Carregar o seu DataFrame renda
-    renda_1 = pd.read_csv(r"C:\Users\leosz\Desktop\Previsao_renda_streamlit\previsao_de_renda.xls")
+    renda_1 = pd.read_csv(r"https://raw.githubusercontent.com/LeonardoSzalo/Previsao-Renda/refs/heads/master/previsao_de_renda.xls")
+
 
     def renda_acima_media(renda):
         if renda < 3500:
