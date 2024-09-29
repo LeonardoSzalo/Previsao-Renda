@@ -18,10 +18,14 @@ def run():
     )
     roc_auc = 0.8151432668062984
 
+    # Exibir resultados
+    st.write(f"Acurácia: {accuracy}")
+    st.write("Relatório de classificação:")
+    st.text(classification_report)
+    st.write(f"AUC ROC: {roc_auc}")
 
-
-    # Exibir a figura
-    st.image("previsao_alternativa.png", caption="Curva ROC", use_column_width=True)
+    # Exibir a figura com tamanho ajustado
+    st.image("previsao_alternativa.png", caption="Curva ROC", width=700)  # Ajuste o valor de width conforme necessário
 
 # Chamar a função run() em um contexto apropriado, como em um if __name__ == "__main__":
 if __name__ == "__main__":
